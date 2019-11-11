@@ -8,7 +8,8 @@ export default function ({  req, res }) {
 
     if (req.path === '/events') {
       let evs = db.get('events').value();
-      res.json(evs)
+      db.set('events', []).write();
+      res.json(evs);
     }
   }
 }
